@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Intro Analyzer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="3" fill="#3b82f6"/>
+        </svg>
+        <h1>Intro Analyzer</h1>
+      </div>
+    </header>
+
+    <!-- Not on YouTube Warning -->
+    <div id="notYouTube" class="warning" style="display: none;">
+      <p>⚠️ Please open a YouTube video to use this extension.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" style="display: none;">
+      <!-- Video Info -->
+      <div class="section">
+        <div class="video-info">
+          <div class="channel-name" id="channelName">Loading...</div>
+          <div class="video-title" id="videoTitle">Loading video information...</div>
+        </div>
+      </div>
+
+      <!-- Time Selection -->
+      <div class="section">
+        <h3>Select Time Range</h3>
+        
+        <div class="time-input-group">
+          <label>Start Time (hh:mm:ss)</label>
+          <input type="text" id="startTime" placeholder="00:00:00" value="00:00:00" maxlength="8" />
+        </div>
+
+        <div class="time-input-group">
+          <label>End Time (hh:mm:ss)</label>
+          <input type="text" id="endTime" placeholder="00:00:30" value="00:00:30" maxlength="8" />
+        </div>
+
+        <div class="preview" id="preview">
+          Duration: <span id="duration">--</span> seconds
+        </div>
+      </div>
+
+      <!-- Category Selection -->
+      <div class="section">
+        <h3>Category</h3>
+        <select id="category" class="select-input">
+          <option value="">Select a category...</option>
+          <option value="Suspense">Suspense</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Educational">Educational</option>
+          <option value="Dramatic">Dramatic</option>
+          <option value="Motivational">Motivational</option>
+          <option value="Minimal">Minimal</option>
+          <option value="Energetic">Energetic</option>
+          <option value="Cinematic">Cinematic</option>
+          <option value="Documentary">Documentary</option>
+          <option value="Tech Review">Tech Review</option>
+        </select>
+        
+        <div class="custom-category-toggle">
+          <label>
+            <input type="checkbox" id="customCategoryToggle" />
+            Use custom category
+          </label>
+        </div>
+        
+        <input 
+          type="text" 
+          id="customCategory" 
+          class="text-input" 
+          placeholder="Enter custom category"
+          style="display: none;"
+        />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="section">
+        <button id="saveIntro" class="btn-primary">
+          Save Intro
+        </button>
+        <button id="clearForm" class="btn-secondary">
+          Clear
+        </button>
+      </div>
+
+      <!-- Status Messages -->
+      <div id="statusMessage" class="status-message" style="display: none;">
+        <div class="status-content">
+          <span id="statusText">Processing...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+      <div class="spinner"></div>
+      <p id="loadingText">Processing your intro...</p>
+      <p class="loading-subtext">This may take 30-60 seconds</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

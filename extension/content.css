@@ -1,0 +1,120 @@
+/* Floating Control Panel */
+.intro-analyzer-panel {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 280px;
+  background-color: rgba(26, 26, 26, 0.98);
+  border: 1px solid #333333;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+}
+
+.intro-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #333333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.intro-panel-close {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.intro-panel-close:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.intro-panel-content {
+  padding: 16px;
+}
+
+.intro-panel-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.intro-panel-btn {
+  flex: 1;
+  padding: 10px 16px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.intro-panel-btn:hover {
+  background-color: #2563eb;
+}
+
+.intro-panel-btn:active {
+  transform: scale(0.98);
+}
+
+.intro-panel-time {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+  min-width: 60px;
+  text-align: right;
+}
+
+.intro-panel-info {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+.intro-panel-duration {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.intro-analyzer-panel {
+  animation: slideIn 0.3s ease;
+}
+
