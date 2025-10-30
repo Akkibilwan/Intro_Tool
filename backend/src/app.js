@@ -11,6 +11,8 @@ require('dotenv').config();
 const introRoutes = require('./routes/intros');
 const searchRoutes = require('./routes/search');
 const statsRoutes = require('./routes/stats');
+const smartSearchRoutes = require('./routes/smartSearch');
+const vdRoutes = require('./routes/vd');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 
 const app = express();
@@ -54,7 +56,9 @@ app.get('/health', (req, res) => {
 // API routes
 app.use('/api/intros', introRoutes);
 app.use('/api/search', searchRoutes);
+app.use('/api/search', smartSearchRoutes);  // Smart search endpoints
 app.use('/api/stats', statsRoutes);
+app.use('/api/generate-vd', vdRoutes);  // Visual Direction generation
 
 // 404 handler
 app.use(notFoundHandler);
